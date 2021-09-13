@@ -4,31 +4,33 @@
 #include <stdio.h>
 #include "player.h"
 #include "selectionSort.h"
-//#include "insertionSort.h"
+#include "insertionSort.h"
 
 using namespace std;
 
 int main() {
     int arraySize = 5;
     float array[arraySize] = {3,8,5,9,1};
-    //selectionSort(arraySize,array);
+    selectionSort(arraySize,array);
 
     playersList listaPlayers;
 
-    listaPlayers.addPlayer(10, "Mess");
+    listaPlayers.addPlayer(10, "Messi");
     listaPlayers.addPlayer(11,"Di Maria");
     listaPlayers.addPlayer(7, "Mbappe");
-    
+
+
+    cout << listaPlayers.insertPlayer(7, "Ronaldo", 0) << endl;
     cout << listaPlayers.isEmpty() << "  " << listaPlayers.getQuantify() << endl;
+    listaPlayers.listPlayers();
+    cout << listaPlayers.removePlayer(10) << endl;
+    listaPlayers.listPlayers();
 
-
-/*     int positionInsert = listaPlayers.insertPlayer(8, "Iniesta", 1);
+    int positionInsert = listaPlayers.insertPlayer(8, "Iniesta", 8);
     cout << positionInsert << endl;
+    cout << listaPlayers.getQuantify() << endl;
+    listaPlayers.listPlayers();
 
-    player* recorrido = listaPlayers.start;
-    while (recorrido!=nullptr) {
-        cout << recorrido->id << "  " << recorrido->name << endl;
-        recorrido = recorrido->next;
-    } */
+    //insertionSort(listaPlayers.getQuantify(),listaPlayers);
 
 }

@@ -1,17 +1,15 @@
-#ifndef _PLAYERS_
-#define _PLAYERS_ 1
+#ifndef _LISTPLAYERS_
 
-#include <stdlib.h>
+#define _LISTPLAYERS_ 1 
+
 #include "player.h"
-
 #include <iostream>
 #include <cstring>
 
 using namespace std;
 
-struct playersList
-{
-    int size;
+struct playersList {
+    int size = 0;
     player* start = nullptr;
     player* end = nullptr;
 
@@ -27,18 +25,20 @@ struct playersList
 
     bool addPlayer(int pNumber, string pName) {
         //agrega un nuevo jugador al final de la lista, 
-        //retorna true si logró agregarlo sin errores 
-        player* newValue = (player*)malloc(sizeof(struct player));
+        //retorna true si logró agregarlo sin errores
+        player* newValue = new player;
         newValue->id = pNumber;
         newValue->name = pName;
-        
-        if (size == 0) {
+        newValue->next = nullptr;
+
+        if (start == nullptr) {
             start = newValue;
-            end = newValue;  // end = start;
         } else {
-            // agregar al final de la lista
-            end->next = newValue; // esto es equivalente a  (*end).next = &newvalue;            
-            end = newValue;            
+            player* aux = start;
+            while (aux->next != nullptr) {
+                aux = aux->next;
+            }
+            aux->next = newValue;
         }
         size++;
         return true;
@@ -52,6 +52,7 @@ struct playersList
             if (start->id == pNumber) {
                 start = start->next;
                 delete aux;
+                size -= 1;
                 return true;
             } else {
                 while (aux->next != nullptr && aux->next->id != pNumber) {
@@ -61,6 +62,7 @@ struct playersList
                     player* toEliminate = aux->next;
                     aux->next = toEliminate->next;
                     delete toEliminate;
+                    size -= 1;
                     return true;
                 }
             }
@@ -69,10 +71,14 @@ struct playersList
     }
 
     int insertPlayer(int pNumber, string pName, int pPosition) {
-        player* newValue = (player*)malloc(sizeof(struct player));
+        player* newValue = new player;
         newValue->id = pNumber;
         newValue->name = pName;
+        newValue->next = nullptr;
         int newPosition = 0;
+
+        if(pPosition>=size)
+            return addPlayer(pNumber, pName);
 
         if (size==0){
             start = newValue;
@@ -103,14 +109,13 @@ struct playersList
         newValue->next = pointerPosition;
         newPosition = actualPosition;
     }
-    
     size++;
     return newPosition;
     }
 
     void listPlayers() {
         //procede a imprimir la lista de jugadores
-        for (player* i = 0; i != nullptr; i = i->next) {
+        for (player* i = start; i != nullptr; i = i->next) {
             cout << "Numero: " << i->id << "  Nombre: " << i->name << endl;
         }
     }
