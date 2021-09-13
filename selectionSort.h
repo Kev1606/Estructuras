@@ -1,8 +1,3 @@
-/*
-El cual debe recibir un puntero a un arreglo de  
-    números enteros y proceder a ordenar los números 
-    usando el algoritmos de selectionSort. 
-*/
 #include <iostream>
 
 using namespace std;
@@ -13,10 +8,12 @@ void selectionSort(int size, float* array)
     int temp;
 
     // Sort the numbers using pointers
-    for (int start = 0; start < size; start++) {
-        for (int process = start + 1; process < size; process++) {
-  
-            if (*(array + process) < *(array + start)) {
+    for (int start = 0; start < size; start++) 
+    {
+        for (int process = start + 1; process < size; process++) 
+        {
+            if (*(array + process) < *(array + start)) 
+            {
                 temp = *(array + start);
                 *(array + start) = *(array + process);
                 *(array + process) = temp;

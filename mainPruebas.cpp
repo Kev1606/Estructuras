@@ -4,11 +4,12 @@
 #include <stdio.h>
 #include "player.h"
 #include "selectionSort.h"
-#include "insertionSort.h"
+//#include "insertionSort.h"
 
 using namespace std;
 
-int main() {
+int main() 
+{
     int arraySize = 5;
     float array[arraySize] = {3,8,5,9,1};
     selectionSort(arraySize,array);

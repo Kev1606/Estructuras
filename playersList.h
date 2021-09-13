@@ -14,18 +14,14 @@ struct playersList {
     player* end = nullptr;
 
     bool isEmpty() {
-        //retorna true en caso de estar vacía 
         return size == 0;
     }
 
     int getQuantify() {
-        //retorna la cantidad de elementos existentes en la lista
         return size;
     }
 
     bool addPlayer(int pNumber, string pName) {
-        //agrega un nuevo jugador al final de la lista, 
-        //retorna true si logró agregarlo sin errores
         player* newValue = new player;
         newValue->id = pNumber;
         newValue->name = pName;
@@ -45,14 +41,12 @@ struct playersList {
     }
 
     bool removePlayer(int pNumber) {
-        //busca un jugador con ese número y lo remueve de la lista, 
-        //retorna true si efectivamente lo encontró y lo removió
         if (start != nullptr) {
             player* aux = start;
             if (start->id == pNumber) {
                 start = start->next;
                 delete aux;
-                size -= 1;
+                size --;
                 return true;
             } else {
                 while (aux->next != nullptr && aux->next->id != pNumber) {
@@ -62,7 +56,7 @@ struct playersList {
                     player* toEliminate = aux->next;
                     aux->next = toEliminate->next;
                     delete toEliminate;
-                    size -= 1;
+                    size --;
                     return true;
                 }
             }
@@ -114,7 +108,6 @@ struct playersList {
     }
 
     void listPlayers() {
-        //procede a imprimir la lista de jugadores
         for (player* i = start; i != nullptr; i = i->next) {
             cout << "Numero: " << i->id << "  Nombre: " << i->name << endl;
         }

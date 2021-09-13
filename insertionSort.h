@@ -1,8 +1,3 @@
-/*
-La función debe recibir un puntero a una lista de jugadores creada llamada playerList. 
-    El algoritmo procede a ordenar la lista con el algoritmo de insertionSort 
-    usando el nombre del jugador como llave del ordenamiento.
-*/
 #include "playersList.h"
 #include "player.h"
 #include <iostream>
@@ -11,5 +6,19 @@ La función debe recibir un puntero a una lista de jugadores creada llamada play
 using namespace std;
 
 void insertionSort(int pSize, playersList* pListaJugadores) {
+    player* temp, pos, aux; 
 
+    for (player* i = start; i != nullptr; i = i->next) 
+    {
+        pos = i;
+        aux = i->name;
+        //while (pos != nullptr && ((i->next->name) > aux ))
+        {
+            
+        }
+        
+
+
+    }
+    
 }
