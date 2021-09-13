@@ -12,3 +12,5 @@ struct player
     string name;
     player* next = nullptr;
 };
+
+#endif
