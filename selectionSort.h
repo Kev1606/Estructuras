@@ -3,26 +3,26 @@
 using namespace std;
   
 // Function to sort the numbers using pointers
-void selectionSort(int size, float* array)
+void selectionSort(int pSize, float* pArray)
 {
     int temp;
 
     // Sort the numbers using pointers
-    for (int start = 0; start < size; start++) 
+    for (int start = 0; start < pSize; start++) 
     {
-        for (int process = start + 1; process < size; process++) 
+        for (int process = start + 1; process < pSize; process++) 
         {
-            if (*(array + process) < *(array + start)) 
+            if (*(pArray + process) < *(pArray + start)) 
             {
-                temp = *(array + start);
-                *(array + start) = *(array + process);
-                *(array + process) = temp;
+                temp = *(pArray + start);
+                *(pArray + start) = *(pArray + process);
+                *(pArray + process) = temp;
             }
         }
     }
   
     // print the numbers
-    for (int i = 0; i < size; i++)
-        cout << *(array + i) << "  ";
+    for (int i = 0; i < pSize; i++)
+        cout << *(pArray + i) << "  ";
     cout << endl;
 }

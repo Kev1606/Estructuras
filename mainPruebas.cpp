@@ -30,6 +30,7 @@ int main()
     int positionInsert = listaPlayers.insertPlayer(8, "Iniesta", 8);
     cout << positionInsert << endl;
     cout << listaPlayers.getQuantify() << endl;
+    listaPlayers.removePlayer(7);
     listaPlayers.listPlayers();
 
     //insertionSort(listaPlayers.getQuantify(),listaPlayers);
