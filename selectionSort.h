@@ -22,7 +22,7 @@ void selectionSort(int pSize, float* pArray)
     }
   
     // print the numbers
-    for (int i = 0; i < pSize; i++)
-        cout << *(pArray + i) << "  ";
+    for (int actualNumber = 0; actualNumber < pSize; actualNumber++)
+        cout << *(pArray + actualNumber) << "  ";
     cout << endl;
 }

@@ -5,39 +5,39 @@
 
 using namespace std;
 
-void insertionSort(playersList* pListaJugadores) {
+void insertionSort(playersList* pListPlayers) {
     int counter = 0;
-    player* j = new player;
+    player* auxForActualPosition = new player;
     player* aux = new player;
-    player* temp = new player;
-    player* pos = new player;
+    player* temporal = new player;
+    player* subsequent = new player;
 
-    for (player* i = pListaJugadores->start; i != nullptr; i = i->next) 
+    for (player* actualPosition = pListPlayers->start; actualPosition != nullptr; actualPosition = actualPosition->next) 
     {
-        j = i;
-        aux->name = i->name;
-        aux->id = i->id;
-        temp->id = aux->id;
-        temp->name = aux->name;
-        pos->name = i->next->name;
-        pos->id = i->next->id;
+        auxForActualPosition = actualPosition;
+        aux->name = actualPosition->name;
+        aux->id = actualPosition->id;
+        temporal->id = aux->id;
+        temporal->name = aux->name;
+        subsequent->name = actualPosition->next->name;
+        subsequent->id = actualPosition->next->id;
 
-        while ( j != nullptr && ((pos->name).compare(aux->name)) < 0)
+        while ( j != nullptr && ((subsequent->name).compare(aux->name)) < 0)
         {   
-            pListaJugadores->removePlayer(pos->id);
-            pListaJugadores->insertPlayer(pos->id, pos->name,counter);
-            aux->name = j->name;
-            aux->id = j->id;
+            pListPlayers->removePlayer(subsequent->id);
+            pListPlayers->insertPlayer(subsequent->id, subsequent->name,counter);
+            aux->name = auxForActualPosition->name;
+            aux->id = auxForActualPosition->id;
 
-            pos->id = j->id;
-            pos->name = j->name;
+            subsequent->id = auxForActualPosition->id;
+            subsequent->name = auxForActualPosition->name;
         }
-        pListaJugadores->insertPlayer(temp->id, temp->name, counter+1);
-        pListaJugadores->removePlayer(temp->id);
-        pos->id = i->id;
-        pos->name = i->name;
+        pListPlayers->insertPlayer(temporal->id, temporal->name, counter+1);
+        pListPlayers->removePlayer(temporal->id);
+        subsequent->id = actualPosition->id;
+        subsequent->name = actualPosition->name;
     }
-    for (player* i = pListaJugadores->start; i != nullptr; i = i->next) {
-        cout << "Numero: " << i->id << "  Nombre: " << i->name << endl;
+    for (player* actualPosition = pListPlayers->start; actualPosition != nullptr; actualPosition = actualPosition->next) {
+        cout << "Number: " << actualPosition->id << "  Name of Player: " << actualPosition->name << endl;
     }
 }
