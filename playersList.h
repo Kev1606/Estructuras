@@ -108,8 +108,8 @@ struct playersList {
     }
 
     void listPlayers() {
-        for (player* i = start; i != nullptr; i = i->next) {
-            cout << "Numero: " << i->id << "  Nombre: " << i->name << endl;
+        for (player* printPlayer = start; printPlayer != nullptr; printPlayer = printPlayer->next) {
+            cout << "Numero: " << printPlayer->id << "  Nombre: " << printPlayer->name << endl;
         }
     }
 };

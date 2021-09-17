@@ -5,7 +5,7 @@ using namespace std;
 // Function to sort the numbers using pointers
 void selectionSort(int pSize, float* pArray)
 {
-    int temp;
+    float temp;
 
     // Sort the numbers using pointers
     for (int start = 0; start < pSize; start++) 

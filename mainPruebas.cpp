@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include "playersList.h"
 #include <stdio.h>
@@ -11,7 +10,7 @@ using namespace std;
 int main() 
 {
     int arraySize = 5;
-    float array[arraySize] = {3,8,5,9,1};
+    float array[arraySize] = {3.2,8.3,5.6,9.8,1.2};
     selectionSort(arraySize,array);
 
     playersList listaPlayers;
@@ -33,6 +32,7 @@ int main()
     listaPlayers.removePlayer(7);
     listaPlayers.listPlayers();
 
-    //insertionSort(listaPlayers.getQuantify(),listaPlayers);
+
+    //insertionSort(&listaPlayers);
 
 }
